@@ -34,10 +34,10 @@ commands = [
     "d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgelr -sky",
     "d3x llms deploy -n demollama38b --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 --publish -sky",
     "d3x serve list",
-    "d3x dataset ingest -d Foodprocessing --config /app/food_processing/demo_ingest.yaml",
+    "d3x dataset ingest -d Foodprocessing --config /home/food_processing/demo_ingest.yaml",
     "d3x dataset list",
-    "d3x apps create --config /app/food_processing/securechat.yaml",
-    "d3x dataset evaluate -d Foodprocessing --config /app/food_processing/demo_eval.yaml"
+    "d3x apps create --config /home/food_processing/securechat.yaml",
+    "d3x dataset evaluate -d Foodprocessing --config /home/food_processing/demo_eval.yaml"
 ]
 
 # Yaml file paths for corresponding commands
