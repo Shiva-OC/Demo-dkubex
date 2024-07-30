@@ -45,10 +45,10 @@ yaml_paths = [
     None,
     None,
     None,
-    "/app/food_processing/demo_ingest.yaml",
+    "/app/food_processing/ingest.yaml",
     None,
-    "/app/food_processing/securechat.yaml",
-    "/app/food_processing/demo_eval.yaml"
+    "/app/food_processing/rag.yaml",
+    "/app/food_processing/eval.yaml"
 ]
 
 
