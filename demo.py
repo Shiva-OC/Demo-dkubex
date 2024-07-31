@@ -42,7 +42,7 @@ commands = [
 
 # Yaml file paths for corresponding commands
 yaml_paths = [
-    None,
+    "/app/food_processing/emb.yaml",
     None,
     None,
     "/app/food_processing/ingest.yaml",
