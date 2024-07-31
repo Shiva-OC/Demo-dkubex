@@ -31,15 +31,15 @@ def run_command(command, placeholder, loader_placeholder):
     return output
 
 commands = [
-    "DKubex Embedding models catalog <br> <br> <span style=\"color:green\">d3x emb list</span><br>",
-    "DKubex LLM models catalog <br> <br> <span style=\"color:green\">d3x llms list</span>",
-    "Deploy bge-large embedding model on cloud <br> <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky</span>",
-    "Deploy llama38B LLM on cloud <br> <br> <span style=\"color:green\">d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct --type=a10 --token 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 -sky</span>",
-    "List all the deployments <br> <br> <span style=\"color:green\">d3x serve list</span>",
-    "Create dataset by ingesting documents <br> <br> <span style=\"color:green\">d3x dataset ingest -d food --config /home/food_processing/demo_ingest.yaml</span>",
-    "List all the datasets <br> <br> <span style=\"color:green\">d3x dataset list</span>",
-    "Create a securechat app to interact with RAG <br> <br> <span style=\"color:green\">d3x apps create --config /home/food_processing/securechat.yaml</span>",
-    "Run evaluation on the dataset <br> <br> <span style=\"color:green\">d3x dataset evaluate -d food --config /home/food_processing/demo_eval.yaml</span>"
+    "DKubex Embedding models catalog <br>  <span style=\"color:green\">d3x emb list</span><br>",
+    "DKubex LLM models catalog <br> <span style=\"color:green\">d3x llms list</span>",
+    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky</span>",
+    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct --type=a10 --token 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 -sky</span>",
+    "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
+    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d food --config /home/food_processing/demo_ingest.yaml</span>",
+    "List all the datasets <br>  <span style=\"color:green\">d3x dataset list</span>",
+    "Create a securechat app to interact with RAG <br>  <span style=\"color:green\">d3x apps create --config /home/food_processing/securechat.yaml</span>",
+    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d food --config /home/food_processing/demo_eval.yaml</span>"
 ]
 
 
