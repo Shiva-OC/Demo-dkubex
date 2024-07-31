@@ -47,7 +47,7 @@ commands = [
 yaml_paths = [
     None,
     None,
-    "/app/demoyamls/emb.yam",
+    "/app/demoyamls/emb.yaml",
     "/app/demoyamls/llms.yaml",
     None,
     "/app/demoyamls/ingest.yaml",
