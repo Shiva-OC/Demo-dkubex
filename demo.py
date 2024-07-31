@@ -48,7 +48,7 @@ yaml_paths = [
     None,
     "/app/food_processing/llms.yaml",
     None,
-    "/apps/food_processing/servelist.yaml",
+    None,
     "/app/food_processing/ingest.yaml",
     None,
     "/app/food_processing/query.yaml",
