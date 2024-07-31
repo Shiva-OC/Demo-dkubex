@@ -47,13 +47,13 @@ commands = [
 yaml_paths = [
     None,
     None,
-    "~/demoyamls/emb.yaml",
-    "~/demoyamls/llms.yaml",
+    "/home/ocdlgit/demoyamls/emb.yaml",
+    "/home/ocdlgit/demoyamls/llms.yaml",
     None,
-    "~/demoyamls/ingest.yaml",
+    "/home/ocdlgit/demoyamls/ingest.yaml",
     None,
-    "~/demoyamls/rag.yaml",
-    "~/demoyamls/eval.yaml"
+    "/home/ocdlgit/demoyamls/rag.yaml",
+    "/home/ocdlgit/demoyamls/eval.yaml"
 ]
 
 
