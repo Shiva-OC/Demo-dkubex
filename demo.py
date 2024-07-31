@@ -88,7 +88,7 @@ st.markdown(
             width: 100%;
         }
         .stTextArea textarea {
-            height: 200px;
+            height: 400px;
         }
     }
     .stButton {
