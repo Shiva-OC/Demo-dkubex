@@ -53,7 +53,7 @@ commands = [
 yaml_paths = [
     None,
     None,
-    "/home/ocdlgit/demoyamls/ingest.yaml",
+    "/home/ocdlgit/demoyamls/emb.yaml",
     "/home/ocdlgit/demoyamls/llms.yaml",
     None,
     "/home/ocdlgit/demoyamls/ingest.yaml",
