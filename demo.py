@@ -158,7 +158,7 @@ with col2:
 st.markdown(
     f"""
     <div class='command-placeholder'>
-        <span class='command-text'>{commands[st.session_state['current_command_index']]}</span>
+       <br> <span class='command-text'>{commands[st.session_state['current_command_index']]}</span><br>
     </div>
     """,
     unsafe_allow_html=True
