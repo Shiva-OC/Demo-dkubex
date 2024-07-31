@@ -32,7 +32,9 @@ def run_command(command, placeholder, loader_placeholder):
 
 commands = [
     "d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgelr -sky",
+    "d3x emb list",
     "d3x llms deploy -n demollama38b --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 --publish -sky",
+    "d3x llms list",
     "d3x serve list",
     "d3x dataset ingest -d Foodprocessing --config /home/food_processing/demo_ingest.yaml",
     "d3x dataset list",
@@ -44,10 +46,12 @@ commands = [
 yaml_paths = [
     "/app/food_processing/emb.yaml",
     None,
+    "/app/food_processing/llms.yaml,
     None,
+    "/apps/food_processing/servelist.yaml",
     "/app/food_processing/ingest.yaml",
     None,
-    "/app/food_processing/rag.yaml",
+    "/app/food_processing/query.yaml",
     "/app/food_processing/eval.yaml"
 ]
 
