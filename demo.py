@@ -31,27 +31,27 @@ def run_command(command, placeholder, loader_placeholder):
     return output
 
 commands = [
-    "d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky",
-    "d3x emb list",
-    "d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 --publish -sky",
-    "d3x llms list",
-    "d3x serve list",
-    "d3x dataset ingest -d food --config /home/food_processing/demo_ingest.yaml",
-    "d3x dataset list",
-    "d3x apps create --config /home/food_processing/securechat.yaml",
-    "d3x dataset evaluate -d Foodprocessing --config /home/food_processing/demo_eval.yaml"
+    "DKubex Embedding models catalog \n\n d3x emb list",
+    "DKubex LLM models catalog \n\n d3x llms list",
+    "Depoy bge-large embedding model on cloud \n\n d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky",
+    "Deploy llama38B LLM on cloud \n\n d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 -sky",
+    "List all the deployments \n\n d3x serve list",
+    "Create dataset by ingesting documents \n\n d3x dataset ingest -d food --config /home/food_processing/demo_ingest.yaml",
+    "List all the datasets \n\n d3x dataset list",
+    "Create a securechat app to interact with RAG \n\n d3x apps create --config /home/food_processing/securechat.yaml",
+    "Run evaluation on the dataset \n\n d3x dataset evaluate -d food --config /home/food_processing/demo_eval.yaml"
 ]
 
 # Yaml file paths for corresponding commands
 yaml_paths = [
-    "/app/demoyamls/emb.yaml",
     None,
+    None,
+    "/app/demoyamls/emb.yam",
     "/app/demoyamls/llms.yaml",
-    None,
     None,
     "/app/demoyamls/ingest.yaml",
     None,
-    "/app/demoyamls/query.yaml",
+    "/app/demoyamls/rag.yaml",
     "/app/demoyamls/eval.yaml"
 ]
 
