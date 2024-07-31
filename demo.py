@@ -41,7 +41,7 @@ commands = [
     "DKubex Embedding models catalog <br>  <span style=\"color:green\">d3x emb list</span>",
     "DKubex LLM models catalog <br> <span style=\"color:green\">d3x llms list</span>",
     "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky</span>",
-    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct --type=a10 --token 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 -sky</span>",
+    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky</span>",
     "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
     "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d food --config /home/ocdlgit/demoyamls/demo_ingest.yaml</span>",
     "List all the datasets <br>  <span style=\"color:green\">d3x dataset list</span>",
@@ -146,7 +146,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("DKubex Live Demo Script - Commands Helper")
+st.title("DKubex Live Demo Script")
 
 # Extract and display the command to be executed with custom styling
 current_command = extract_command(commands[st.session_state['current_command_index']])
