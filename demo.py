@@ -46,7 +46,7 @@ commands = [
 yaml_paths = [
     "/app/food_processing/emb.yaml",
     None,
-    "/app/food_processing/llms.yaml,
+    "/app/food_processing/llms.yaml",
     None,
     "/apps/food_processing/servelist.yaml",
     "/app/food_processing/ingest.yaml",
