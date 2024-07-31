@@ -47,13 +47,13 @@ commands = [
 yaml_paths = [
     None,
     None,
-    "/app/demoyamls/emb.yaml",
-    "/app/demoyamls/llms.yaml",
+    "~/demoyamls/emb.yaml",
+    "~/demoyamls/llms.yaml",
     None,
-    "/app/demoyamls/ingest.yaml",
+    "~/demoyamls/ingest.yaml",
     None,
-    "/app/demoyamls/rag.yaml",
-    "/app/demoyamls/eval.yaml"
+    "~/demoyamls/rag.yaml",
+    "~/demoyamls/eval.yaml"
 ]
 
 
@@ -141,7 +141,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("DKubex Live Demo")
+st.title("DKubex Live Demo Script - Commands Helper")
 
 # Display the current command with the loader beside it
 col1, col2 = st.columns([30, 1])
@@ -188,7 +188,7 @@ with st.container():
         st.experimental_rerun()
 
     # Display terminal output
-    terminal_placeholder.markdown(f"<div style='background-color: #1a1c24; color: #ffffff; font-family: monospace; white-space: pre-wrap; height: 350px; width: 100%; overflow-y: auto; padding: 10px; border-radius: 10px; margin-bottom: 20px;'>{st.session_state['output']}</div><div id='end-of-output'></div>", unsafe_allow_html=True)
+    # terminal_placeholder.markdown(f"<div style='background-color: #1a1c24; color: #ffffff; font-family: monospace; white-space: pre-wrap; height: 350px; width: 100%; overflow-y: auto; padding: 10px; border-radius: 10px; margin-bottom: 20px;'>{st.session_state['output']}</div><div id='end-of-output'></div>", unsafe_allow_html=True)
 
     # Display the configuration if available
     yaml_path = yaml_paths[st.session_state['current_command_index']]
