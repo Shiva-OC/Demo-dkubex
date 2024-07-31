@@ -31,7 +31,7 @@ def run_command(command, placeholder, loader_placeholder):
     return output
 
 commands = [
-    "DKubex Embedding models catalog <br> d3x emb list",
+    "DKubex Embedding models catalog <br> <br> <span style="color:blue">d3x emb list<span>",
     "DKubex LLM models catalog <br> d3x llms list",
     "Depoy bge-large embedding model on cloud <br> d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky",
     "Deploy llama38B LLM on cloud <br> d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 -sky",
