@@ -31,12 +31,12 @@ def run_command(command, placeholder, loader_placeholder):
     return output
 
 commands = [
-    "d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgelr -sky",
+    "d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgecloud -sky",
     "d3x emb list",
-    "d3x llms deploy -n demollama38b --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 --publish -sky",
+    "d3x llms deploy -n llama3cloud --model meta-llama/Meta-Llama-3-8B-Instruct  --type=a10 --token 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 --publish -sky",
     "d3x llms list",
     "d3x serve list",
-    "d3x dataset ingest -d Foodprocessing --config /home/food_processing/demo_ingest.yaml",
+    "d3x dataset ingest -d food --config /home/food_processing/demo_ingest.yaml",
     "d3x dataset list",
     "d3x apps create --config /home/food_processing/securechat.yaml",
     "d3x dataset evaluate -d Foodprocessing --config /home/food_processing/demo_eval.yaml"
@@ -44,15 +44,15 @@ commands = [
 
 # Yaml file paths for corresponding commands
 yaml_paths = [
-    "/app/food_processing/emb.yaml",
+    "/app/demoyamls/emb.yaml",
     None,
-    "/app/food_processing/llms.yaml",
+    "/app/demoyamls/llms.yaml",
     None,
     None,
-    "/app/food_processing/ingest.yaml",
+    "/app/demoyamls/ingest.yaml",
     None,
-    "/app/food_processing/query.yaml",
-    "/app/food_processing/eval.yaml"
+    "/app/demoyamls/query.yaml",
+    "/app/demoyamls/eval.yaml"
 ]
 
 
