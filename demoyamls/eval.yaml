@@ -1,0 +1,49 @@
+dataset: "climate"
+
+#ground_truth: "ground_truth_file.csv"
+
+questions_generator:
+    prompt_str: "default"
+    prompt_file: ""
+    num_questions_per_chunk: 1
+    max_chunks: 100     # Maximum number of chunks to be used for question generation
+    llm: openai
+    llmkey: "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"
+    llmurl: ""
+    max_tokens: 2048
+
+evaluator:
+  - retrieval_evaluator
+  - embedding_similairty_evaluator
+  - context_relevancy_evaluator
+  #- answer_relevancy_evaluator
+  #- faithfullness_evaluator
+  #- correctness_evaluator
+
+retrieval_evaluator:
+  - hitrate
+  - mrr
+embedding_similairty_evaluator:
+  embedding_models:
+    - bge
+    - e5
+context_relevancy_evaluator:
+  llm:
+    provider: openai #dkubex url
+    key:
+  prompt: default
+answer_relevancy_evaluator:
+  llm:
+    provider: openai #dkubex url
+    key:
+  prompt: default
+faithfullness_evaluator: #hallucination score
+  llm:
+    provider: openai #dkubex url
+    key:
+  prompt: default
+correctness_evaluator: #to evaluate the relevance and correctness of a generated answer against a reference answer.
+  llm:
+    provider: openai #dkubex url
+    key:
+  prompt: default
