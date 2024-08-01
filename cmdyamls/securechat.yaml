@@ -1,0 +1,22 @@
+image: "dkubex123/llmapp:noreplicas"
+name: "climate"             # Unique name of the chat application
+cpu: 1
+gpu: 0
+memory: 4
+dockerserver: "DOCKER_SERVER"
+dockeruser: "docker123"
+dockerpsw: "dckr_pat_dE90DkE9bzttBinnniexlHdPPgI"
+publish: "true"             # "True" if the application will be accessible by any user, otherwise "false". Default="true"
+env:
+  SECUREAPP_ACCESS_KEY: "allow"
+  FMQUERY_ARGS: "llm --dataset climate --config /home/ocdlgit/demoyamls/demo_rag.yaml"
+                            # Use 'llm' if using DKubeX LLM deployment for generating response, else use 'openai' if using OpenAI
+                            # --dataset: Name of the dataset to be queried
+                            # --config: Absolute path to the RAG config (query.yaml) file
+port: "3000"
+description: "Chatbot Application"
+rewritetarget: "false"
+configsnippet: ""
+ingressprefix: "climate"    # Provide unique ingress prefix for the application. This will be used in the application URL. e.g. https://123.45.67.890:32443/chatbot
+output: "yaml"
+mount_home: "all"
