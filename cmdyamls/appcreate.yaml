@@ -1,0 +1,19 @@
+image: "shivakadagala/streamlit:demo"
+name: "DKubex"
+cpu: 1
+gpu: 0
+memory: 4
+dockerserver: "DOCKER_SERVER"
+dockeruser: "docker123"
+dockerpsw: "dckr_pat_dE90DkE9bzttBinnniexlHdPPgI"
+publish: "true"
+env:
+  SECUREAPP_ACCESS_KEY: "allow"
+  FMQUERY_ARGS: ""
+port: "8501"
+description: ""
+rewritetarget: "false"
+configsnippet: ""
+ingressprefix: "streamlit"
+output: "yaml"
+mount_home: "all"
