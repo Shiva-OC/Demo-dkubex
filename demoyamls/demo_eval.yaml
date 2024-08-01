@@ -10,7 +10,7 @@ questions_generator:                                        # Generates the ques
     num_questions_per_chunk: 1                              # Number of questions to be generated per chunk
     max_chunks: 5                                         # Maximum number of chunks to be used for question generation
     llm: openai                                             # Language model to be used for question generation. To use OpenAI to generate questions, use 'openai'. To use DKubeX LLM deployment, use 'dkubex'
-    llmkey: "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" # If using DKubeX deployment, provide the serving_token for the deployment. If using OpenAI, provide the OpenAI API key
+    llmkey: "s**************************e" # If using DKubeX deployment, provide the serving_token for the deployment. If using OpenAI, provide the OpenAI API key
     llmurl: ""                                              # Endpoint URL for the DKubeX LLM deployment which will be used for generating responses. If using OpenAI, keep blank.
     max_tokens: 2048                                        # Maximum number of tokens to be used for generating questions
 retrieval_evaluator:
