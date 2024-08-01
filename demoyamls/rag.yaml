@@ -1,0 +1,53 @@
+dataset: foodprocess
+vectorstore: weaviate_vectorstore #elasticsearch_vectorstore,opensearch_vectorstore
+embedding: dkubex  #openai,llm2vec,others
+search: vector_search   #bm25_search,hybrid_search
+query:
+  post_processor:
+    - acronym_expander
+
+synthesizer:
+  use_adjacent_chunks: True
+  llm: dkubex
+  llm_url: http://44.214.15.224:30003/v1/
+  llmkey: 
+  prompt: default
+  window_size: 2
+  max_tokens: 1024
+
+mlflow:
+  experiment: climate_chat
+
+# openai:
+#   model: 'text-embedding-ada-002'
+#   llmkey: 
+
+huggingface:
+  model: "BAAI/bge-large-en-v1.5"
+
+dkubex:
+  embedding_url: "https://a39d44034b53541deb754ffe25ee0d01-6a9d515a94d26bb2.elb.us-east-1.amazonaws.com/deployment/1/bge/"
+  embedding_key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoib2NkbGdpdCIsInR5cGUiOiJhcGkiLCJpZCI6Ii9kZXBsb3ltZW50L2JnZS8ifQ.x0Zt-GkAsoyvvfBLQ5-aT7I2Ia_IokMunNc6KGa0Hyo"
+  batch_size: 10
+
+vector_search:
+  top_k: 3
+  rerank: true
+  rerank_topk: 5
+  max_sources: 3
+
+# bm25_search:
+#   top_k: 100
+#   reranker: similarity_score
+#   rereank_topk: 5
+
+# hybrid_search:
+#   top_k: 5
+
+weaviate_vectorstore:
+  provider: dkubex # externally hosted
+  url: ""
+  auth_key: ""
+
+acronym_expander:
+  acr_file: "/home/default"
