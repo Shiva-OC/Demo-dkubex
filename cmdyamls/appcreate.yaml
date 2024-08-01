@@ -5,7 +5,7 @@ gpu: 0
 memory: 4
 dockerserver: "DOCKER_SERVER"
 dockeruser: "docker123"
-dockerpsw: "dckr_pat_dE90DkE9bzttBinnniexlHdPPgI"
+dockerpsw: "dckr************************l"
 publish: "true"
 env:
   SECUREAPP_ACCESS_KEY: "allow"
