@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 import subprocess
 import time
@@ -43,26 +41,26 @@ def run_command(command, placeholder, loader_placeholder):
 commands = [
     "DKubex Embedding models catalog <br>  <span style=\"color:green\">d3x emb list</span>",
     "DKubex LLM models catalog <br> <span style=\"color:green\">d3x llms list</span>",
-    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgedemo -sky</span>",
-    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3demo --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky</span>",
+    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgedemo -sky --config /app/repo/comdyamls/emb.yaml</span>",
+    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3demo --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky --config /app/repo/comdyamls/llms.yaml</span>",
     "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
-    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d food --config /home/ocdlgit/demoyamls/demo_ingest.yaml</span>",
+    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d food --config /app/repo/cmdyamls/ingest.yaml</span>",
     "List all the datasets <br>  <span style=\"color:green\">d3x dataset list</span>",
-    "Create a securechat app to interact with RAG <br>  <span style=\"color:green\">d3x apps create --config /home/ocdlgit/demoyamls/securechat.yaml</span>",
-    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d food --config /home/ocdlgit/demoyamls/demo_eval.yaml</span>"
+    "Create a securechat app to interact with RAG <br>  <span style=\"color:green\">d3x apps create --config /app/repo/cmdyamls/rag.yaml</span>",
+    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d food --config /app/repo/cmdyamls/eval.yaml</span>"
 ]
 
-# Yaml file paths for corresponding commands
+# Yaml file paths for corresponding commands for display purposes
 yaml_paths = [
     None,
     None,
-    "/home/ocdlgit/demoyamls/emb.yaml",
-    "/home/ocdlgit/demoyamls/llms.yaml",
+    "/app/repo/demoyamls/emb.yaml",
+    "/app/repo/demoyamls/llms.yaml",
     None,
-    "/home/ocdlgit/demoyamls/ingest.yaml",
+    "/app/repo/demoyamls/ingest.yaml",
     None,
-    "/home/ocdlgit/demoyamls/rag.yaml",
-    "/home/ocdlgit/demoyamls/eval.yaml"
+    "/app/repo/demoyamls/rag.yaml",
+    "/app/repo/demoyamls/eval.yaml"
 ]
 
 # Initialize session state variables if not already present
@@ -211,6 +209,7 @@ if next_button:
     if st.session_state['current_command_index'] < len(commands) - 1:
         st.session_state['current_command_index'] += 1
     st.experimental_rerun()
+
 
 # import streamlit as st
 # import subprocess
