@@ -1,0 +1,49 @@
+#Rag_configuartion:
+
+input:
+    question: ""
+    mode: "cli"
+vectorstore_retriever:
+    kind: weaviate
+    vectorstore_provider: dkubex
+    embedding_class: HuggingFaceEmbedding                       # Use 'HuggingFaceEmbedding' for embedding models from HuggingFace, or 'OpenAIEmbedding' for OpenAI embeddings
+    embedding_model: 'BAAI/bge-large-en-v1.5'                   # Embedding model name
+    llmkey: ""                                                  # API key for the embedding model (if required)
+    textkey: 'paperchunks'
+    top_k: 3
+prompt_builder:
+    prompt_str: ""
+    prompt_file: ""
+nodes_sorter:
+    max_sources: 3
+contexts_joiner:
+    separator: "\n\n"
+chat_engine:
+    llm: dkubex                                                 # Use 'dkubex' for DKubeX deployments and 'openai' to use OpenAI API
+    url: "https://123.45.67.890/deployment/1/llama27bbase/"     # Endpoint URL for the DKubeX LLM deployment which will be used for generating responses. If using OpenAI, keep blank
+    llmkey: "eyJh***********************JSg"                    # If using DKubeX deployment, provide the serving_token for the deployment. If using OpenAI, provide the OpenAI API key
+    window_size: 2
+    max_tokens: 2048                                            # Maximum number of tokens to be used for generating responses
+securellm:                                                      # SecureLLM configuration. Comment out this section if not using SecureLLM
+    appkey: sk-zxr**************************ya                  # Provide SecureLLM Application Key to be used
+    dkubex_url: "https://123.45.67.890:32443"                   # Provide the URL of the DKubeX deployment
+tracking:
+  experiment: dkubexfm-rag                                      # Provide MLFlow experiment name
+  
+#There are 4 ways to query your dataset - Single question, Batch mode, and Interactive mode.
+
+#A. Single question:
+
+CMD: d3x dataset query -d <dataset_name> --config <absolute path to your yaml-config file> -q "<question>"
+
+#B. Batch mode
+
+CMD: d3x dataset query -d <dataset_name> -b <path to your batch-que json file> --config <absolute path to your yaml-config file>
+
+#C. Interactive mode
+
+CMD: d3x dataset query -d <dataset_name> --config <absolute path to your yaml-config file> -i
+
+#D. SecureLLM chat App
+
+#usisg config file of secureLLM app

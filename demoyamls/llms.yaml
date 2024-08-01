@@ -1,0 +1,33 @@
+Deploying LLM in DKubex
+-----------------------
+
+Command to deploy LLM from dkubex catalog
+----------------------------------
+d3x llms deploy --name={name of the model} --token ${HF_TOKEN}
+
+Command to deploy LLM from HF model registry
+--------------------------------------------
+d3x llms deploy --n {name of the model} --type=acclerator_type --token ${HF_TOKEN}
+
+Add `--sky` to above commands for deploying LLM on sky
+
+Options:
+  -n, --name TEXT           name of the deployment  [required]
+  -m, --model TEXT          name or path of the model to deploy for serving
+  --base_model TEXT         base model name
+  --token TEXT              hugging face token
+  --config TEXT             github raw content url or local config path
+  --mlflow TEXT             name of the mlflow registered model along with
+                            version (example: diffusion:1)
+  --image TEXT              customized docker image for llm deployment
+  --type TEXT               instance type
+  --min_replicas TEXT       minimum replicas
+  --max_replicas TEXT       maximum replicas
+  --publish                 publish the deployment
+  -o, --output [yaml|json]  supported only json,yaml
+  -sky, --remote-sky        If the model should be deployed on remote sky
+                            cluster.
+  --sky-accelerator TEXT    accelerator for remote sky cluster
+  --sky-yaml TEXT           Path to custom yaml file for sky serve.
+  --use-spot                Whether to request spot instances for sky
+                            deployments.
