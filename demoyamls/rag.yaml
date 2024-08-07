@@ -1,4 +1,4 @@
-dataset: foodprocess
+dataset: climate
 vectorstore: weaviate_vectorstore #elasticsearch_vectorstore,opensearch_vectorstore
 embedding: dkubex  #openai,llm2vec,others
 search: vector_search   #bm25_search,hybrid_search
