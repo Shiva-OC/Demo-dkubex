@@ -20,7 +20,7 @@ contexts_joiner:
     separator: "\n\n"
 chat_engine:
     llm: dkubex                                                 # Use 'dkubex' for DKubeX deployments and 'openai' to use OpenAI API
-    url: "https://123.45.67.890/deployment/1/llama27bbase/"     # Endpoint URL for the DKubeX LLM deployment which will be used for generating responses. If using OpenAI, keep blank
+    url: "https://123.45.67.890/deployment/1/llama38base/    # Endpoint URL for the DKubeX LLM deployment which will be used for generating responses. If using OpenAI, keep blank
     llmkey: "eyJh***********************JSg"                    # If using DKubeX deployment, provide the serving_token for the deployment. If using OpenAI, provide the OpenAI API key
     window_size: 2
     max_tokens: 2048                                            # Maximum number of tokens to be used for generating responses
