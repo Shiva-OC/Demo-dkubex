@@ -44,10 +44,10 @@ commands = [
     "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgedemo -sky",
     "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3demo --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky</span>",
     "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
-    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d food --config /app/repo/cmdyamls/ingest.yaml</span>",
+    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d climate --config /app/repo/cmdyamls/ingest.yaml</span>",
     "List all the datasets <br>  <span style=\"color:green\">d3x dataset list</span>",
     "Create a securechat app to interact with RAG <br>  <span style=\"color:green\">d3x apps create --config /app/repo/cmdyamls/rag.yaml</span>",
-    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d food --config /app/repo/cmdyamls/eval.yaml</span>"
+    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d climate --config /app/repo/cmdyamls/eval.yaml</span>"
 ]
 
 # Yaml file paths for corresponding commands for display purposes
