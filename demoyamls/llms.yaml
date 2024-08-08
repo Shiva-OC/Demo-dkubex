@@ -13,7 +13,7 @@ Command to deploy LLM from MLflow of dKubex
 --------------------------------------------
 d3x models import {name of the model} custom_model ${HOMEDIR}/path to the yaml
 
-d3x llms deploy -n {name of the model} --mlflow {name of the import} --token ${HF_TOKEN} --type L4 
+d3x llms deploy -n {name of the model} --mlflow {name of the import}  --type=acclerator_type --token ${HF_TOKEN} --publish(if you want it to be publish)
 
 Add `--sky` to above commands for deploying LLM on sky
 
