@@ -18,7 +18,7 @@ token_text_splitter:
   chunk_overlap: 0
 
 mlflow:
-  experiment: ingestion
+  experiment: climate_ingestion
 
 # semantic_splitter:
 #   buffer_size: 1
