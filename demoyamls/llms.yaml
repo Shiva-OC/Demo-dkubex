@@ -11,9 +11,7 @@ d3x llms deploy --n {name of the model} --config {path to config.yaml} --type=ac
 
 Command to deploy LLM from MLflow of dKubex
 --------------------------------------------
-d3x models import {name of the model} custom_model ${HOMEDIR}/path to the yaml
-
-d3x llms deploy -n {name of the model} --mlflow {name of the import}  --type=acclerator_type --token ${HF_TOKEN} --publish(if you want it to be publish)
+d3x serve create -n <deployment name> -r mlflow --model <model name> --model_version <model version number> --repo_name <name of repo> --repo_org <username of repo owner> --branch_name <branch of serving script> --depfilepath <deployment file path> 
 
 Add `--sky` to above commands for deploying LLM on sky
 
