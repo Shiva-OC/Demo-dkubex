@@ -5,14 +5,13 @@ import os
 import re
 from streamlit_extras.stylable_container import stylable_container
 
-
 def extract_command(command_string):
     match = re.search(r"<span style=\"color:green\">(.*?)</span>", command_string)
     if match:
         return match.group(1)
     return ""
 
-def run_command(command, placeholder, loader_placeholder):
+def run_command(command, placeholder):
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     output = ""
     while True:
@@ -22,9 +21,7 @@ def run_command(command, placeholder, loader_placeholder):
         if line:
             output += line
             st.session_state['output'] = output.replace('\n', '<br>')
-            # Update output in the UI
-            placeholder.markdown(f"<div style='background-color: #1a1c24; color: #ffffff; font-family: monospace; white-space: pre-wrap; height: auto; width: 100%; overflow-y: auto; padding: 10px; border-radius: 10px;'>{st.session_state['output']}</div><div id='end-of-output'></div>", unsafe_allow_html=True)
-            # Scroll to bottom using JS
+            placeholder.markdown(f"<div style='background-color: #1a1c24; color: #ffffff; font-family: monospace; white-space: pre-wrap; height: 300px; width: 100%; overflow-y: auto; padding: 10px; border-radius: 10px;'>{st.session_state['output']}</div><div id='end-of-output'></div>", unsafe_allow_html=True)
             scroll_js = """
             <script>
             var element = document.getElementById("end-of-output");
@@ -35,17 +32,13 @@ def run_command(command, placeholder, loader_placeholder):
             time.sleep(0.1)  # Add a small delay to simulate real-time streaming
     rc = process.poll()
     output += f"\nProcess finished with return code {rc}\n"
-    # Update loader to tick mark
-    if loader_placeholder:
-        loader_placeholder.markdown("<span class='tick-mark'>&#x2714;</span>", unsafe_allow_html=True)
     return output
-
 
 commands = [
     "DKubex Embedding models catalog <br>  <span style=\"color:green\">d3x emb list</span>",
     "DKubex LLM models catalog <br> <span style=\"color:green\">d3x llms list</span>",
-    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy -n bge --model BAAI--bge-large-en-v1-5 </span>",
-    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3 --model meta-llama/Meta-Llama-3-8B-Instruct --token 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</span>",
+    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy -n bge --model BAAI--bge-large-en-v1-5 -sky</span>",
+    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3 --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky</span>",
     "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
     "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d climate --config /home/data/ingest.yaml</span>",
     "List all the datasets <br>  <span style=\"color:green\">d3x dataset list</span>",
@@ -66,7 +59,7 @@ yaml_paths = [
     "/app/repo/demoyamls/eval.yaml"
 ]
 
-# Initialize session state variables if not already present
+# Initialize session state variables
 if 'current_command_index' not in st.session_state:
     st.session_state['current_command_index'] = 0
 if 'outputs' not in st.session_state:
@@ -78,7 +71,7 @@ if 'output' not in st.session_state:
 if 'running' not in st.session_state:
     st.session_state['running'] = False
 
-# Custom CSS to make the app full width and responsive
+# Custom CSS
 st.markdown(
     """
     <style>
@@ -103,17 +96,10 @@ st.markdown(
     .stButton {
         margin-right: 10px;
     }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    """
-    <style>
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .spinner {
         border: 4px solid rgba(0, 0, 0, 0.1);
@@ -122,6 +108,11 @@ st.markdown(
         width: 20px;
         height: 20px;
         animation: spin 1s linear infinite;
+        margin-left: 10px;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
     .tick-mark {
         font-size: 1.5em;
@@ -154,7 +145,7 @@ st.markdown(
         color: #ffffff;
         font-family: monospace;
         white-space: pre-wrap;
-        height: auto;
+        height: 300px; /* Fixed height */
         width: 100%;
         overflow-y: auto;
         padding: 10px;
@@ -166,9 +157,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("DKubex Live Demo Script")
+st.title("DKubex Live Demo")
 
-# Extract and display the command to be executed with custom styling
+col1, col2 = st.columns([30, 1])
+
+with col2:
+    loader_placeholder = st.empty()
+    if st.session_state['running']:
+        loader_placeholder.markdown("<div class='spinner'></div>", unsafe_allow_html=True)
+    elif st.session_state['commands_run'][st.session_state['current_command_index']]:
+        loader_placeholder.markdown("<span class='tick-mark'>&#x2714;</span>", unsafe_allow_html=True)
+
 current_command = extract_command(commands[st.session_state['current_command_index']])
 st.markdown(
     f"""
@@ -179,40 +178,24 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Create a container for the Run Command button
 button_container = st.columns([3, 4, 2, 2, 2, 2])
 with button_container[0]:
     run_button = st.button("Run Command", key='run', use_container_width=True, disabled=st.session_state['running'] or st.session_state['commands_run'][st.session_state['current_command_index']])
 
-# with button_container[2]:
-#     # Display View Configuration button if YAML path is available
-#     yaml_path = yaml_paths[st.session_state['current_command_index']]
-#     if yaml_path and os.path.exists(yaml_path):
-#         with st.popover("View Configuration", use_container_width=True):
-#             with open(yaml_path, 'r') as file:
-#                 yaml_content = file.read()
-#             st.code(yaml_content, language='yaml')
-
 codeblock_css = """
 code {
- 
     font-family: "Source Sans Pro", sans-serif !important;
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
     overflow-x: scroll;
 }
 """
-   # white-space: pre-wrap !important;
 
-# Example of View Configuration button with styled YAML display
 with button_container[2]:
-    # Display View Configuration button if YAML path is available
     yaml_path = yaml_paths[st.session_state['current_command_index']]
     if yaml_path and os.path.exists(yaml_path):
         with st.popover("View Configuration", use_container_width=True):
             with open(yaml_path, 'r') as file:
                 yaml_content = file.read()
-
-            # Wrap the st.code block with the stylable_container
             with stylable_container("codeblock", codeblock_css):
                 st.code(yaml_content, language='yaml', line_numbers=True)
 
@@ -221,40 +204,36 @@ with button_container[4]:
 with button_container[5]:
     next_button = st.button("Next", key='next', use_container_width=True, disabled=st.session_state['running'] or st.session_state['current_command_index'] >= len(commands) - 1)
 
-# Create placeholders for the terminal output and loader
 terminal_placeholder = st.empty()
-loader_placeholder = st.empty()
 
-# Run command and display output
 if st.session_state['running']:
-    output = run_command(current_command, terminal_placeholder, loader_placeholder)
+    output = run_command(current_command, terminal_placeholder)
     st.session_state['outputs'][st.session_state['current_command_index']] = output
     st.session_state['output'] = output
     st.session_state['running'] = False
-    st.rerun()  # Trigger a rerun
+    st.rerun()
 
-# Always display terminal output below YAML if there's any
 if st.session_state['outputs'][st.session_state['current_command_index']]:
     terminal_placeholder.markdown(
         f"<div class='terminal-output'>{st.session_state['output']}</div><div id='end-of-output'></div>", 
         unsafe_allow_html=True
     )
 
-# Button functionality
 if run_button and not st.session_state['running']:
     st.session_state['running'] = True
     st.session_state['commands_run'][st.session_state['current_command_index']] = True
-    st.rerun()  # Trigger a rerun
+    st.rerun()
 
 if prev_button:
     st.session_state['current_command_index'] -= 1
     st.session_state['output'] = st.session_state['outputs'][st.session_state['current_command_index']]
-    st.rerun()  # Trigger a rerun
+    st.rerun()
 
 if next_button:
     st.session_state['current_command_index'] += 1
     st.session_state['output'] = st.session_state['outputs'][st.session_state['current_command_index']]
-    st.rerun()  # Trigger a rerun
+    st.rerun()
+
 
 
 
