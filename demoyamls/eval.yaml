@@ -8,7 +8,7 @@ questions_generator:
     num_questions_per_chunk: 1
     max_chunks: 5     # Maximum number of chunks to be used for question generation
     llm: openai
-    llmkey: "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"
+    llmkey: "sk-45**********************************e"
     llmurl: ""
     max_tokens: 2048
 
@@ -47,3 +47,5 @@ correctness_evaluator: #to evaluate the relevance and correctness of a generated
     provider: openai #dkubex url
     key:
   prompt: default
+mlflow:
+  experiment: climate_eval
