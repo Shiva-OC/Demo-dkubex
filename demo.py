@@ -37,7 +37,7 @@ def run_command(command, placeholder):
 commands = [
     "DKubex Embedding models catalog <br>  <span style=\"color:green\">d3x emb list</span>",
     "DKubex LLM models catalog <br> <span style=\"color:green\">d3x llms list</span>",
-    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy -n bge --config /home/data/bgeray.yaml</span>",
+    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy -n bge -m BAAI--bge-large-en-v1-5</span>",
     "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3 --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky</span>",
     "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
     "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d climate --config /home/data/ingest.yaml</span>",
