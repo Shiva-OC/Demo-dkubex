@@ -28,7 +28,7 @@ securellm:                                                      # SecureLLM conf
     appkey: sk-zxr**************************ya                  # Provide SecureLLM Application Key to be used
     dkubex_url: "https://123.45.67.890:32443"                   # Provide the URL of the DKubeX deployment
 tracking:
-  experiment: dkubexfm-rag                                      # Provide MLFlow experiment name
+  experiment: climate_chat                                      # Provide MLFlow experiment name
   
 #There are 4 ways to query your dataset - Single question, Batch mode, and Interactive mode.
 
