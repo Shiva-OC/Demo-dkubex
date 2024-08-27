@@ -40,20 +40,20 @@ def run_command(command, placeholder, loader_placeholder):
 commands = [
     "DKubex Embedding models catalog <br>  <span style=\"color:green\">d3x emb list</span>",
     "DKubex LLM models catalog <br> <span style=\"color:green\">d3x llms list</span>",
-    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy --model BAAI--bge-large-en-v1-5 -n bgedemo -sky --config /app/repo/cmdyamls/emb.yaml</span>",
-    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3demo --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky --config /app/repo/cmdyamls/llms.yaml</span>",
+    "Deploy bge-large embedding model on cloud <br> <span style=\"color:green\">d3x emb deploy -n bge -m BAAI--bge-large-en-v1-5 -sky</span>",
+    "Deploy llama38B LLM on cloud <br>  <span style=\"color:green\">d3x llms deploy -n llama3 --model meta-llama/Meta-Llama-3-8B-Instruct --token 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 -sky</span>",
     "List all the deployments <br>  <span style=\"color:green\">d3x serve list</span>",
-    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d food --config /app/repo/cmdyamls/ingest.yaml</span>",
+    "Create dataset by ingesting documents <br>  <span style=\"color:green\">d3x dataset ingest -d climate --config /home/data/ingest.yaml</span>",
     "List all the datasets <br>  <span style=\"color:green\">d3x dataset list</span>",
-    "Create a securechat app to interact with RAG <br>  <span style=\"color:green\">d3x apps create --config /app/repo/cmdyamls/rag.yaml</span>",
-    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d food --config /app/repo/cmdyamls/eval.yaml</span>"
+    "Create a securechat app to interact with RAG <br>  <span style=\"color:green\">d3x apps create --config /home/data/securechat.yaml</span>",
+    "Run evaluation on the dataset <br> <span style=\"color:green\">d3x dataset evaluate -d climate --config /home/data/eval.yaml</span>"
 ]
 
 # Yaml file paths for corresponding commands for display purposes
 yaml_paths = [
-    "/home/oc/Downloads/emb.yaml",
     None,
-    "/home/oc/Downloads/ingest.yaml",
+    None,
+    "/app/repo/demoyamls/emb.yaml",
     "/app/repo/demoyamls/llms.yaml",
     None,
     "/app/repo/demoyamls/ingest.yaml",
@@ -61,6 +61,7 @@ yaml_paths = [
     "/app/repo/demoyamls/rag.yaml",
     "/app/repo/demoyamls/eval.yaml"
 ]
+
 
 # Initialize session state variables if not already present
 if 'current_command_index' not in st.session_state:
