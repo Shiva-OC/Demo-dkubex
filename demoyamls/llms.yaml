@@ -3,7 +3,7 @@ Deploying LLM in DKubex
 
 Command to deploy LLM from dkubex catalog
 ----------------------------------
-d3x llms deploy --name={name of the model} --token ${HF_TOKEN}
+d3x llms deploy --name={name of the model} --model {name of the model from catalog} --token ${HF_TOKEN}
 
 Command to deploy LLM from HF model registry
 --------------------------------------------
