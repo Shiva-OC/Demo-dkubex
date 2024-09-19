@@ -9,10 +9,6 @@ Command to deploy embedding model from HF model registry
 --------------------------------------------------------
 d3x emb deploy --n {name of the model} --config {path to config.yaml} --type=acclerator_type --token ${HF_TOKEN}
 
-Add `--sky` option to above commands for deploying model on cloud.
-add --publish  option to above commands if you want it to be published.
-
-
 OPTIONS:
   -n, --name TEXT           name of the deployment  [required]
   -m, --model TEXT          name or path of the model to deploy for embeddings
