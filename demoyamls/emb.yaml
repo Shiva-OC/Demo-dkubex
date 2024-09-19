@@ -3,13 +3,14 @@ Deploying Embedding model in DKubex
 
 Command to deploy embedding model from catalog
 ----------------------------------------------
-d3x emb deploy --n {name of the model} --model {name of the model from catalog} --token ${HF_TOKEN} --publish(if you want it to be published)
+d3x emb deploy --n {name of the model} --model {name of the model from catalog} --token ${HF_TOKEN} 
 
 Command to deploy embedding model from HF model registry
 --------------------------------------------------------
-d3x emb deploy --n {name of the model} --config {path to config.yaml} --type=acclerator_type --token ${HF_TOKEN} --publish(if you want it to be published)
+d3x emb deploy --n {name of the model} --config {path to config.yaml} --type=acclerator_type --token ${HF_TOKEN}
 
-Add `--sky` option to above command for deploying model on cloud.
+Add `--sky` option to above commands for deploying model on cloud.
+add --publish  option to above commands if you want it to be published.
 
 
 OPTIONS:
