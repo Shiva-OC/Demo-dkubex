@@ -3,17 +3,15 @@ Deploying LLM in DKubex
 
 Command to deploy LLM from dkubex catalog
 ----------------------------------
-d3x llms deploy --name={name of the model} --model {name of the model from catalog} --token ${HF_TOKEN}
+d3x llms deploy --name={name of the model} --model {name of the model from catalog} --type=accelerator_type --token ${HF_TOKEN}
 
 Command to deploy LLM from HF model registry
 --------------------------------------------
-d3x llms deploy --n {name of the model} --config {path to config.yaml} --type=acclerator_type --token ${HF_TOKEN}
+d3x llms deploy --n {name of the model} --config {path to config.yaml} --type=accelerator_type --token ${HF_TOKEN}
 
 Command to deploy LLM from MLflow of dKubex
---------------------------------------------
-d3x serve create -n <deployment name> -r mlflow --model <model name> --model_version <model version number> --repo_name <name of repo> --repo_org <username of repo owner> --branch_name <branch of serving script> --depfilepath <deployment file path> 
-
-Add `--sky` to above commands for deploying LLM on sky
+-------------------------------------------- 
+d3x llms deploy -n <name of the deployment> --base_model <base LLM name> --mlflow <name of registered model>:<model version> --type <accelerator type> --token <access token for the model (if required)>
 
 Options:
   -n, --name TEXT           name of the deployment  [required]
