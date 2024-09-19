@@ -1,4 +1,4 @@
-image: "shivakadagala/demo:app2.0"
+image: "shivakadagala/dkubex-demo:sept-latest" #"shivakadagala/demo:app2.0"
 name: "demoapp"
 cpu: 1
 gpu: 0
